@@ -8,7 +8,6 @@ public class study1_5 {
 
     //index 한칸씩뒤로밀고 index위치에 value삽입
     static void insert(int[] a, int index, int value) {
-
         int temp = a[index]; //초기 해당위치 배열값 저장
         a[index] = value;  // 변경값 삽입
         for( int i=index; i<a.length-1; i++) {
@@ -19,13 +18,22 @@ public class study1_5 {
         }
     }
 
+    static void insert2(int[] a, int index, int value){
+
+        if(index>=a.length)
+        insert(a, index+1, a[index]);
+        a[index] = value;
+
+
+    }
+
     public static void main(String[] args) {
         int[] a = new int[10];
         for (int i = 0; i < a.length; ++i)
             a[i] = i;
 
-        insert(a, 5, -99);
-
+        //insert(a, 5, -99);
+        insert2(a, 5, -99);
         print(a);
     }
 
