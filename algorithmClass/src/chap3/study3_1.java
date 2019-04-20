@@ -65,22 +65,24 @@ public class study3_1 {
     public static void main(String[] args) {
         int[] b = { 17, 14, 11, 19, 13, 15, 18, 12, 16, 20 };
         String[] a = { "zero", "one", "two", "three", "four", "five", "six", "seven" };
-        selectionSort(a);
-        insertionSort(a);
-        bubbleSort(a);
+        int[] c = {17, 14, 11, 19 ,13};
+        //selectionSort(a);
+        //insertionSort(a);
+        //bubbleSort(a);
         // ----- int ------ //
-       // select(b);
-        //insert(b);
-        bubble(b);
+//         select(c);
+        insert(c);
+//        bubble(c);
         //[five, four, one, seven, six, three, two, zero]
-        System.out.println(Arrays.toString(a));
-        System.out.println(Arrays.toString(b));
+        //System.out.println(Arrays.toString(a));
+        System.out.println(Arrays.toString(c));
     }
 
     //선택정렬
     static void select(int[] b){
 
-        for(int i=0; i<b.length; i++){
+        for(int i=0; i<b.length-1; i++){
+            System.out.println(Arrays.toString(b));
             int minvalue = b[i];
             int minindex = i;
             for(int j=i+1; j<b.length; j++) {
@@ -98,6 +100,7 @@ public class study3_1 {
 
     static void insert(int[] b){
         for(int i=1; i<b.length; i++){
+            System.out.println(Arrays.toString(b));
             int value = b[i];
             int j;
             for( j= i-1; j>=0; j--){
@@ -108,25 +111,26 @@ public class study3_1 {
                 }
             }
             b[j+1] = value; //삽입할값
+
         }
+
     }
 
     static  void bubble(int[] b){
-        for(int i=b.length-1; i>=0; i--){
-
-            boolean complete = false;
-            for(int j=0; j<i; j++){
-                if(b[j]>b[j+1]){
+        for(int i=b.length-1; i>=1; i--){
+            System.out.println(Arrays.toString(b));
+            boolean complete = true;
+            for(int j=0; j<i; j++) {
+                if (b[j] > b[j + 1]) {
                     int temp = b[j];
-                    b[j] = b[j+1];
-                    b[j+1] = temp;
-                    complete = true; //트리거되지않으면 정렬이 이미되있다는것
+                    b[j] = b[j + 1];
+                    b[j + 1] = temp;
+                    complete = false; //트리거되지않으면 정렬이 이미되있다는것
                 }
-
-                if (!complete)
+            }
+                if (complete)
                     break;
 
-            }
         }
     }
 
